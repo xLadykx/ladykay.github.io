@@ -2,106 +2,258 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LadyKay Photography</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Raleway', sans-serif; line-height: 1.6; color: #333; background: #fff; }
-    header {
-      background: url('https://source.unsplash.com/1600x600/?camera,portrait') center/cover no-repeat;
-      height: 100vh;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
       color: white;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
+      padding: 15px 30px;
+      z-index: 1000;
     }
-    header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 0.5rem; }
-    header p { font-size: 1.3rem; margin-bottom: 1.5rem; }
-    header a {
-      background: white;
-      color: #333;
+    nav a {
+      color: white;
       text-decoration: none;
-      padding: 0.7rem 1.5rem;
+      margin: 0 15px;
       font-weight: bold;
-      border-radius: 4px;
-      transition: background 0.3s;
     }
-    header a:hover { background: #f1f1f1; }
+    nav a:hover {
+      color: #f5a623;
+    }
 
-    section { padding: 4rem 2rem; max-width: 900px; margin: auto; }
-    h2 { font-size: 2.2rem; margin-bottom: 1rem; text-align: center; font-family: 'Playfair Display', serif; }
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s;
+    }
+    .hero img.active {
+      opacity: 1;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      border-radius: 10px;
+    }
+    .hero-text h1 {
+      font-size: 3em;
+    }
 
-    .portfolio {
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about p, .services p, .testimonials p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      gap: 15px;
     }
-    .portfolio img {
+    .gallery img {
       width: 100%;
       border-radius: 8px;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
-    .portfolio img:hover { transform: scale(1.03); }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
 
-    form { display: flex; flex-direction: column; gap: 1rem; }
-    input, textarea, button {
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+    .testimonials blockquote {
+      font-style: italic;
+      border-left: 4px solid #f5a623;
+      padding-left: 15px;
+      margin: 20px 0;
     }
-    button { background: #333; color: white; cursor: pointer; }
-    button:hover { background: #555; }
+
+    .testimonials cite {
+      display: block;
+      text-align: right;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    .services li {
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 12px;
+      font-size: 1em;
+      background: #f5a623;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
     footer {
+      background: #111;
+      color: white;
       text-align: center;
-      padding: 2rem;
-      background: #f9f9f9;
-      font-size: 0.9rem;
-      color: #777;
+      padding: 30px 10px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.4em;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2em; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>LadyKay Photography</h1>
-    <p>Real Moments. Real Memories.</p>
-    <a href="#contact">Book a Session</a>
-  </header>
 
-  <section id="about">
-    <h2>Meet Kaya</h2>
-    <p>Hey, I’m Kaya — a photographer with a big heart, a curious eye, and a love for capturing life’s most meaningful moments. While I’m still early in my journey, I bring passion, care, and a relaxed energy to every session.</p>
-    <p>I work with families, couples, and individuals on everything from maternity shoots and birthday celebrations to timeless portraits and real, everyday magic. I focus on the feeling — the laughter, the stillness, the in-betweens — because that’s where the real story lives.</p>
-    <p>My approach is warm, easygoing, and centered around making you feel seen, comfortable, and confident. No stiff poses, no pressure — just authentic connection and photos that reflect the heart of who you are.</p>
-    <p>Every session is personal to me. I want you to walk away with images that feel honest, joyful, and uniquely yours. If that sounds like your vibe, let’s create something beautiful together.</p>
+  <nav>
+    <div><strong>LadyKay</strong></div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <img src="images/photo1.jpg" class="active" alt="">
+    <img src="images/photo2.jpg" alt="">
+    <img src="images/photo3.jpg" alt="">
+    <div class="hero-text">
+      <h1>LadyKay Photography</h1>
+      <p>Moments Made Timeless</p>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hey, I’m Kaya — a friendly, down-to-earth photographer who’s just beginning this exciting journey behind the lens. While I’m still learning and growing with every shoot, I’m confident in my ability to capture meaningful moments that you’ll treasure for years to come.</p>
+    <p>I work with families, couples, and individuals on events, maternity, portraits, birthdays, and more. I love being part of your special milestones — the laughter, the quiet moments, and everything in between.</p>
+    <p>My style is relaxed, family-friendly, and focused on making you feel at ease in front of the camera. I believe beautiful photos come from real moments — real smiles, real stories, real memories.</p>
+    <p>I’m here to help you tell your story with warmth and heart. Every session is personal, and I take pride in delivering images that feel authentic, joyful, and timeless.</p>
   </section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio">
-      <img src="https://source.unsplash.com/400x400/?family" alt="Family" />
-      <img src="https://source.unsplash.com/400x400/?maternity" alt="Maternity" />
-      <img src="https://source.unsplash.com/400x400/?portrait" alt="Portrait" />
-      <img src="https://source.unsplash.com/400x400/?birthday" alt="Birthday" />
+  <section id="services" class="services">
+    <h2>Services & Pricing</h2>
+    <ul>
+      <li><strong>Mini Session – $120</strong>: 30 minutes, 10 edited photos</li>
+      <li><strong>Standard Session – $220</strong>: 1 hour, 25+ edited photos</li>
+      <li><strong>Events – From $300</strong>: Birthdays, maternity, engagements (2 hours+)</li>
+      <li><strong>Custom Packages</strong> available on request — I’ll work with your needs</li>
+    </ul>
+    <p>All sessions include light editing and a digital gallery. Prints available upon request.</p>
+  </section>
+
+  <section id="gallery">
+    <h2>Featured Gallery</h2>
+    <div class="gallery">
+      <img src="images/photo4.jpg" alt="">
+      <img src="images/photo5.jpg" alt="">
+      <img src="images/photo6.jpg" alt="">
+      <img src="images/photo7.jpg" alt="">
     </div>
   </section>
 
+  <section id="testimonials" class="testimonials">
+    <h2>What Clients Say</h2>
+    <blockquote>
+      "Kaya made our family shoot so fun and relaxed. The photos turned out beautifully and really captured our vibe!"
+      <cite>– Jess & Mark</cite>
+    </blockquote>
+    <blockquote>
+      "She’s got an amazing eye for detail and made me feel so confident during my maternity session. Highly recommend."
+      <cite>– Tanya R.</cite>
+    </blockquote>
+    <blockquote>
+      "Friendly, patient, and creative — Kaya captured the best candid moments at our birthday event. Loved every shot!"
+      <cite>– Leo D.</cite>
+    </blockquote>
+  </section>
+
   <section id="contact">
-    <h2>Contact & Booking</h2>
-    <form action="mailto:your@email.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Tell me what you’re looking for…" required></textarea>
-      <button type="submit">Send Message</button>
+    <h2>Book a Session</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Tell me what you’re looking for..."></textarea>
+      <button type="submit">Send Inquiry</button>
     </form>
   </section>
 
   <footer>
-    &copy; 2025 LadyKay Photography — Designed with Rizz Energy ⚡
+    <p>© 2025 LadyKay Photography</p>
+    <div class="socials">
+      <a href="https://instagram.com/ladykayphotography" target="_blank" title="Instagram">📷</a>
+      <a href="mailto:hello@ladykayphotography.com" title="Email">💌</a>
+      <a href="https://ladykayphotography.com" target="_blank" title="Website">🌐</a>
+    </div>
   </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.hero img');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 4000);
+  </script>
 </body>
 </html>
