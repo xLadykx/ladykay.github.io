@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,6 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
 
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0;
@@ -30,6 +31,7 @@
       color: #f5a623;
     }
 
+    /* HERO SLIDESHOW */
     .hero {
       position: relative;
       height: 100vh;
@@ -56,9 +58,15 @@
       background: rgba(0, 0, 0, 0.5);
       padding: 20px 40px;
       border-radius: 10px;
+      max-width: 90%;
     }
     .hero-text h1 {
       font-size: 3em;
+    }
+    .hero-text p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      font-style: italic;
     }
 
     section {
@@ -73,11 +81,28 @@
       text-align: center;
     }
 
-    .about p, .services p, .testimonials p {
+    .about p {
       font-size: 1.2em;
       line-height: 1.6;
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
       margin-bottom: 15px;
+    }
+
+    /* New about additions */
+    .about p.intro {
+      font-weight: 600;
+      font-size: 1.4em;
+      margin-bottom: 25px;
+    }
+    .about ul {
+      max-width: 600px;
+      margin: 0 auto;
+      list-style-type: disc;
+      padding-left: 20px;
+      font-size: 1.1em;
+      line-height: 1.5;
     }
 
     .gallery {
@@ -89,46 +114,25 @@
       width: 100%;
       border-radius: 8px;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .gallery img:hover {
       transform: scale(1.05);
-    }
-
-    .testimonials blockquote {
-      font-style: italic;
-      border-left: 4px solid #f5a623;
-      padding-left: 15px;
-      margin: 20px 0;
-    }
-
-    .testimonials cite {
-      display: block;
-      text-align: right;
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    .services ul {
-      list-style: none;
-      padding: 0;
-      text-align: center;
-    }
-
-    .services li {
-      margin-bottom: 15px;
-      font-size: 1.2em;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
     }
     input, textarea {
       padding: 10px;
       font-size: 1em;
       border: 1px solid #ccc;
       border-radius: 5px;
+      resize: vertical;
     }
     button {
       padding: 12px;
@@ -138,6 +142,10 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #d4881e;
     }
 
     footer {
@@ -151,11 +159,23 @@
       margin: 0 10px;
       color: white;
       text-decoration: none;
-      font-size: 1.4em;
+      font-size: 1.6em;
+      transition: color 0.3s ease;
+    }
+    .socials a:hover {
+      color: #f5a623;
     }
 
     @media (max-width: 768px) {
       .hero-text h1 { font-size: 2em; }
+      .hero-text p { font-size: 1em; }
+      nav {
+        flex-direction: column;
+        padding: 10px 20px;
+      }
+      nav div:last-child {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -165,17 +185,15 @@
     <div><strong>LadyKay</strong></div>
     <div>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
-      <a href="#testimonials">Testimonials</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
   <div class="hero">
-    <img src="images/photo1.jpg" class="active" alt="">
-    <img src="images/photo2.jpg" alt="">
-    <img src="images/photo3.jpg" alt="">
+    <img src="images/photo1.jpg" class="active" alt="Photography sample 1">
+    <img src="images/photo2.jpg" alt="Photography sample 2">
+    <img src="images/photo3.jpg" alt="Photography sample 3">
     <div class="hero-text">
       <h1>LadyKay Photography</h1>
       <p>Moments Made Timeless</p>
@@ -184,47 +202,25 @@
 
   <section id="about" class="about">
     <h2>About Me</h2>
-    <p>Hey, I’m Kaya — a friendly, down-to-earth photographer who’s just beginning this exciting journey behind the lens. While I’m still learning and growing with every shoot, I’m confident in my ability to capture meaningful moments that you’ll treasure for years to come.</p>
-    <p>I work with families, couples, and individuals on events, maternity, portraits, birthdays, and more. I love being part of your special milestones — the laughter, the quiet moments, and everything in between.</p>
-    <p>My style is relaxed, family-friendly, and focused on making you feel at ease in front of the camera. I believe beautiful photos come from real moments — real smiles, real stories, real memories.</p>
-    <p>I’m here to help you tell your story with warmth and heart. Every session is personal, and I take pride in delivering images that feel authentic, joyful, and timeless.</p>
-  </section>
-
-  <section id="services" class="services">
-    <h2>Services & Pricing</h2>
+    <p class="intro">I’m LadyKay — a storyteller with a lens. I capture love, laughter, life’s quiet beauty. Whether weddings, portraits, or pure emotion, my art is about presence and memory. Let’s create something unforgettable.</p>
+    <p>Photography is not just what I do — it’s who I am. Every moment is a story waiting to be told, every face a canvas, every light a brushstroke. My mission is to freeze your most precious memories in time with warmth, creativity, and authenticity.</p>
+    <p>Here’s what you can expect when you work with me:</p>
     <ul>
-      <li><strong>Mini Session – $120</strong>: 30 minutes, 10 edited photos</li>
-      <li><strong>Standard Session – $220</strong>: 1 hour, 25+ edited photos</li>
-      <li><strong>Events – From $300</strong>: Birthdays, maternity, engagements (2 hours+)</li>
-      <li><strong>Custom Packages</strong> available on request — I’ll work with your needs</li>
+      <li>Personalized sessions tailored to your unique story</li>
+      <li>A calm, fun, and professional experience</li>
+      <li>High-quality, timeless images you’ll cherish forever</li>
+      <li>Flexible packages to fit your needs and budget</li>
     </ul>
-    <p>All sessions include light editing and a digital gallery. Prints available upon request.</p>
   </section>
 
   <section id="gallery">
     <h2>Featured Gallery</h2>
     <div class="gallery">
-      <img src="images/photo4.jpg" alt="">
-      <img src="images/photo5.jpg" alt="">
-      <img src="images/photo6.jpg" alt="">
-      <img src="images/photo7.jpg" alt="">
+      <img src="images/photo4.jpg" alt="Gallery photo 1">
+      <img src="images/photo5.jpg" alt="Gallery photo 2">
+      <img src="images/photo6.jpg" alt="Gallery photo 3">
+      <img src="images/photo7.jpg" alt="Gallery photo 4">
     </div>
-  </section>
-
-  <section id="testimonials" class="testimonials">
-    <h2>What Clients Say</h2>
-    <blockquote>
-      "Kaya made our family shoot so fun and relaxed. The photos turned out beautifully and really captured our vibe!"
-      <cite>– Jess & Mark</cite>
-    </blockquote>
-    <blockquote>
-      "She’s got an amazing eye for detail and made me feel so confident during my maternity session. Highly recommend."
-      <cite>– Tanya R.</cite>
-    </blockquote>
-    <blockquote>
-      "Friendly, patient, and creative — Kaya captured the best candid moments at our birthday event. Loved every shot!"
-      <cite>– Leo D.</cite>
-    </blockquote>
   </section>
 
   <section id="contact">
@@ -240,9 +236,9 @@
   <footer>
     <p>© 2025 LadyKay Photography</p>
     <div class="socials">
-      <a href="https://instagram.com/ladykayphotography" target="_blank" title="Instagram">📷</a>
-      <a href="mailto:hello@ladykayphotography.com" title="Email">💌</a>
-      <a href="https://ladykayphotography.com" target="_blank" title="Website">🌐</a>
+      <a href="#" aria-label="Instagram">📷</a>
+      <a href="#" aria-label="Email">💌</a>
+      <a href="#" aria-label="Website">🌐</a>
     </div>
   </footer>
 
