@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LadyKay Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Raleway', sans-serif; line-height: 1.6; color: #333; background: #fff; }
+    header {
+      background: url('https://source.unsplash.com/1600x600/?camera,portrait') center/cover no-repeat;
+      height: 100vh;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.3rem; margin-bottom: 1.5rem; }
+    header a {
+      background: white;
+      color: #333;
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    header a:hover { background: #f1f1f1; }
+
+    section { padding: 4rem 2rem; max-width: 900px; margin: auto; }
+    h2 { font-size: 2.2rem; margin-bottom: 1rem; text-align: center; font-family: 'Playfair Display', serif; }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .portfolio img {
+      width: 100%;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .portfolio img:hover { transform: scale(1.03); }
+
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea, button {
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button { background: #333; color: white; cursor: pointer; }
+    button:hover { background: #555; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #f9f9f9;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LadyKay Photography</h1>
+    <p>Real Moments. Real Memories.</p>
+    <a href="#contact">Book a Session</a>
+  </header>
+
+  <section id="about">
+    <h2>Meet Kaya</h2>
+    <p>Hey, I’m Kaya — a photographer with a big heart, a curious eye, and a love for capturing life’s most meaningful moments. While I’m still early in my journey, I bring passion, care, and a relaxed energy to every session.</p>
+    <p>I work with families, couples, and individuals on everything from maternity shoots and birthday celebrations to timeless portraits and real, everyday magic. I focus on the feeling — the laughter, the stillness, the in-betweens — because that’s where the real story lives.</p>
+    <p>My approach is warm, easygoing, and centered around making you feel seen, comfortable, and confident. No stiff poses, no pressure — just authentic connection and photos that reflect the heart of who you are.</p>
+    <p>Every session is personal to me. I want you to walk away with images that feel honest, joyful, and uniquely yours. If that sounds like your vibe, let’s create something beautiful together.</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio">
+      <img src="https://source.unsplash.com/400x400/?family" alt="Family" />
+      <img src="https://source.unsplash.com/400x400/?maternity" alt="Maternity" />
+      <img src="https://source.unsplash.com/400x400/?portrait" alt="Portrait" />
+      <img src="https://source.unsplash.com/400x400/?birthday" alt="Birthday" />
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact & Booking</h2>
+    <form action="mailto:your@email.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Tell me what you’re looking for…" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 LadyKay Photography — Designed with Rizz Energy ⚡
+  </footer>
+</body>
+</html>
